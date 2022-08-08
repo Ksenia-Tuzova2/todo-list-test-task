@@ -1,7 +1,10 @@
+/* проверка пакета scss */
 $app-bg: pink;
 
-.App {
-  text-align: center;
+.todo {
+  background-color:$app-bg;
+  display:flex;
+ justify-content:center
 }
 
 .App-logo {
@@ -16,7 +19,6 @@ $app-bg: pink;
 }
 
 .App-header {
-  background-color: $app-bg;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
