@@ -1,3 +1,4 @@
+import { Progress } from "./progress";
 
 export function Redaction() {
 	// let description:String|Boolean
@@ -7,21 +8,21 @@ export function Redaction() {
 	// 	else return 'Start redact description'
 	// }
 	return (
-		
-					<div className="redaction">
-						<div className="name-progress__wrapper">
-						<div className="name">Имя задачи</div>
-						<p className="progress">в процессе</p>
+
+		<div className="redaction">
+			<div className="name-progress__wrapper">
+				<div className="name">Имя задачи</div>
+				<Progress />
 			</div>
 			<div className="lorem" >какой-то текст
 				{/* {description} */}
-						</div>
-						<div className="form__wrapper">
-			<input className="description" type='text'  placeholder="" />
-	 <button>готово</button>
 			</div>
+			<div className="form__wrapper">
+				<input className="description" type='text' placeholder="" />
+				<button>готово</button>
 			</div>
-		
+		</div>
+
 	);
 }
 

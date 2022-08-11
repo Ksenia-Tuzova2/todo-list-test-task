@@ -1,11 +1,13 @@
+import { Progress } from "../../redaction/progress";
 
-export function Checkbox({name}) {
+export function Checkbox(props:any) {
 	return (
-		
-					<div className="checkbox__wrapper">
-			<input type='checkbox' className="checkbox" /><p className="nameP">{name}</p>
-			</div>
-		
+
+		<div className="checkbox__wrapper">
+			<input type='checkbox' className="checkbox" /><p className="nameP">{props.name}</p>
+			<Progress selected={props.selected} />{props.selected}
+		</div>
+
 	);
 }
 

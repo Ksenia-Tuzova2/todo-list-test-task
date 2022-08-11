@@ -16,9 +16,6 @@ function App() {
       <div className="line"></div>
       {/* //создаем компоненту с редактированием */}
 <Redaction/>
-<div className="todo__redaction">
-
-</div>
     </div>
 
   );
