@@ -1,6 +1,6 @@
 import { Progress } from "./progress";
 
-export function Redaction() {
+export function Redaction(props: any) {
 	// let description:String|Boolean
 	//  description=''
 	// let changePlaceholder=()=>{
@@ -12,7 +12,7 @@ export function Redaction() {
 		<div className="redaction">
 			<div className="name-progress__wrapper">
 				<div className="name">Имя задачи</div>
-				<Progress />
+				<Progress selected={props.selected}/>
 			</div>
 			<div className="lorem" >какой-то текст
 				{/* {description} */}
