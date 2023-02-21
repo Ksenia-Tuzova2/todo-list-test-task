@@ -5,16 +5,14 @@ import { ChangeEvent } from 'react';
 
 
 export type ToDoListType = {
-    idTask:string
     checked:boolean,
     task:string,
     onChangeHandler:(e: ChangeEvent<HTMLInputElement>)=>void,
-    onDeleteHandler:(idItem: string)=>void,
+    onDeleteHandler:()=>void,
 }
 
 
 export function TaskItem({
-    idTask,
     checked,
     task,
     onChangeHandler,
@@ -30,7 +28,7 @@ export function TaskItem({
                 onChange={onChangeHandler}
             />
             <span>{task}</span>
-            <IconButton aria-label="delete" onClick={() => onDeleteHandler(idTask)}>
+            <IconButton aria-label="delete" onClick={() => onDeleteHandler()}>
                 <Delete />
             </IconButton>
         </li>)

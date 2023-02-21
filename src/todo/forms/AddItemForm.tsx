@@ -1,13 +1,13 @@
 import { Button, IconButton, TextField } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
 import React, { useState, ChangeEvent, KeyboardEvent } from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 
+
 type NewType = {
-    id?:string;
-    deleteItem?: (id: string) => void;
-    addItem?: (id: string, newText: string) => void
+    deleteItem: () => void;
+    addItem: (title: string) => void
 };
 
 export type AddItemFormType = NewType
@@ -26,7 +26,7 @@ export function AddItemForm({ addItem,  deleteItem }: AddItemFormType) {
 
 
     const onDeleteListClickHandler = () => {
-        
+        deleteItem()
     }
 
 
@@ -41,7 +41,7 @@ export function AddItemForm({ addItem,  deleteItem }: AddItemFormType) {
 
     const plusButton = () => {
         if (value.trim() !== '') {
-            // addItem(value.trim());
+            addItem(value.trim());
             setValue('');
         } else setErr('err')
     }

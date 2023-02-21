@@ -1,11 +1,8 @@
-import { Delete } from '@mui/icons-material';
-import IconButton from '@mui/material/IconButton';
-import React, { useState, ChangeEvent, KeyboardEvent } from 'react';
-import { AddItemForm } from '../../AddItemForm';
-import { FilterType } from '../../App';
+import './App.css';
 import { Button, Checkbox } from '@mui/material';
-import { TaskItem } from '../taskItem/taskItem';
-
+import { AddItemForm } from './forms/AddItemForm';
+import { TaskItem } from './task/taskItem';
+import { ChangeEvent } from 'react';
 
 export type TasksType = {
     task: string,
@@ -27,7 +24,7 @@ export type ToDoListType = {
 }
 
 
-export function ToDoList({
+export function Todo({
     title,
     tasks,
     deleteTask,
@@ -50,12 +47,11 @@ export function ToDoList({
         changeFilter(id, param)
     }
 
+  
 
+    let mapTasks=tasks.map((el: TasksType) => {
 
-
-    let mapFunction = tasks.map((el: TasksType) => {
-
-
+       
 
         const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
             changeCheckBox(id, el.id, e.currentTarget.checked);
@@ -64,7 +60,6 @@ export function ToDoList({
 
         return <div key={el.id}>
             <TaskItem
-                idTask={el.id}
                 checked={el.checked}
                 task={el.task}
                 onChangeHandler={onChangeHandler}
@@ -72,23 +67,19 @@ export function ToDoList({
         </div>
     })
 
-
-
-
-    return (
-        <div className="App">
-            <div>
+  return (
+    <div className="App">
+     <div>
                 <h3>{title}</h3>
 
-                <AddItemForm id={id} deleteToDoList={deleteToDoList} addItem={addTask} />
+                <AddItemForm />
 
                 <ul>
-                    {mapFunction}
+                    {mapTasks}
 
                 </ul>
                 <div>
-                    {/* <button name='delete' onClick={someFunction}>X</button>
-                    <button name='save' onClick={someFunction}>X</button> */}
+               
 
                     <Button color={'secondary'} variant={filter === 'All' ? 'outlined' : 'text'} onClick={() => onClickHandler('All')}>All</Button>
                     <Button variant={filter === 'Active' ? 'outlined' : 'text'} onClick={() => onClickHandler('Active')}>Active</Button>
@@ -96,8 +87,8 @@ export function ToDoList({
 
                 </div>
             </div>
-        </div>
-    );
+    </div>
+  );
 }
 
 
